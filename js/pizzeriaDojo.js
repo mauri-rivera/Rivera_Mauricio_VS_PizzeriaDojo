@@ -5,38 +5,24 @@ function pizzaOven(tipoCorteza, tipoSalsa, quesos, salsas) {
     let pizza = {
         tipoCorteza: tipoCorteza,
         tipoSalsa: tipoSalsa,
-        quesos: seleccionQuesos(quesos),
-        salsas: seleccionSalsas(salsas)
+        quesos: seleccionIngredientes(quesos),
+        salsas: seleccionIngredientes(salsas)
     }
 
-    function seleccionSalsas(salsas) {
+    function seleccionIngredientes(arregloIngredientes) {
         
-        salsaAlAzar = Math.floor(Math.random() * salsas.length);
-        salsaSeleccionada = "";
+        let ingredienteAlAzar = Math.floor(Math.random() * arregloIngredientes.length);
+        let ingredienteSeleccionado;
 
-        for (let i = 0; i < salsas.length; i++) {
-            if (salsas[i] === salsas[salsaAlAzar]){
-                salsaSeleccionada += salsas[i];
+        for (let i = 0; i < arregloIngredientes.length; i++) {
+            if (arregloIngredientes[i] === arregloIngredientes[ingredienteAlAzar]) {
+                ingredienteSeleccionado = arregloIngredientes[i];
             }
         }
 
-        return salsaSeleccionada;
+        return ingredienteSeleccionado;
     }
-
-    function seleccionQuesos(quesos) {
-
-        quesoAlAzar = Math.floor(Math.random() * quesos.length);
-        quesoSeleccionado = "";
-
-        for (let i = 0; i < quesos.length; i++) {
-            if (quesos[i] === quesos[quesoAlAzar]) {
-                quesoSeleccionado += quesos[i];
-            }
-        }
-
-        return quesoSeleccionado;
-    }
-
+    
     return pizza;    
 }
 
